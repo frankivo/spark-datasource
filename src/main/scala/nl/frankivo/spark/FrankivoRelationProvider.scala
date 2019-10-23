@@ -1,13 +1,13 @@
 package nl.frankivo.spark
 
-import org.apache.spark.{Partition, TaskContext}
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.{Row, SQLContext}
-import org.apache.spark.sql.sources.{BaseRelation, DataSourceRegister, Filter, PrunedFilteredScan, SchemaRelationProvider}
+import org.apache.spark.sql.sources._
 import org.apache.spark.sql.types.StructType
+import org.apache.spark.sql.{Row, SQLContext}
+import org.apache.spark.{Partition, TaskContext}
 
 class FrankivoRelationProvider extends DataSourceRegister with SchemaRelationProvider {
-  override def shortName(): String = "frankivo"
+  override def shortName(): String = FrankivoRelationProvider.SHORT_NAME
 
   override def createRelation(
                                _sqlContext: SQLContext,
@@ -25,7 +25,12 @@ class FrankivoRelationProvider extends DataSourceRegister with SchemaRelationPro
 
           override protected def getPartitions: Array[Partition] = ???
         }
+
+      override def toString: String = FrankivoRelationProvider.SHORT_NAME
     }
   }
+}
 
+object FrankivoRelationProvider {
+  val SHORT_NAME = "frankivo"
 }
