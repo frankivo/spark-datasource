@@ -15,7 +15,7 @@ class FrankivoRelation(_sqlContext: SQLContext, _schema: StructType) extends Bas
     new RDD[Row](sqlContext.sparkContext, Nil) {
       override def compute(split: Partition, context: TaskContext): Iterator[Row] = ???
 
-      override protected def getPartitions: Array[Partition] = ???
+      override protected def getPartitions: Array[Partition] = Array.empty
     }
 
   override def toString: String = FrankivoRelationProvider.SHORT_NAME
