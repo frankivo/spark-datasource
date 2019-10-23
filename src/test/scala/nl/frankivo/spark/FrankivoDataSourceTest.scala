@@ -1,7 +1,7 @@
 package nl.frankivo.spark
 
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.types.{LongType, StructType}
+import org.apache.spark.sql.types.{LongType, StringType, StructType}
 
 object FrankivoDataSourceTest extends App {
 
@@ -13,6 +13,7 @@ object FrankivoDataSourceTest extends App {
 
   val schema = new StructType()
     .add("id", LongType)
+    .add("name", StringType)
 
   val df = spark
     .read
