@@ -11,7 +11,7 @@ class FrankivoRelation(_sqlContext: SQLContext, _schema: StructType) extends Bas
   override def schema: StructType = _schema
 
   override def buildScan(requiredColumns: Array[String], filters: Array[Filter]): RDD[Row] =
-    new FrankivoRDD[Row](_sqlContext.sparkContext)
+    new FrankivoRDD(_sqlContext.sparkContext)
 
   override def toString: String = FrankivoRelationProvider.SHORT_NAME
 }
