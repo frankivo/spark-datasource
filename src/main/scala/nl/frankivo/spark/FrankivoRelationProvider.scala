@@ -1,7 +1,7 @@
 package nl.frankivo.spark
 
 import org.apache.spark.sql.SQLContext
-import org.apache.spark.sql.sources._
+import org.apache.spark.sql.sources.{BaseRelation, DataSourceRegister, SchemaRelationProvider}
 import org.apache.spark.sql.types.StructType
 
 class FrankivoRelationProvider extends DataSourceRegister with SchemaRelationProvider {
