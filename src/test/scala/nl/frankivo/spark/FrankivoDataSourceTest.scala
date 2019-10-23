@@ -14,10 +14,11 @@ object FrankivoDataSourceTest extends App {
   val schema = new StructType()
     .add("id", LongType)
 
-  spark
+  val df = spark
     .read
     .format("frankivo")
     .schema(schema)
     .load
-    .explain
+
+  df.show
 }
