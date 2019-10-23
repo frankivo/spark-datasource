@@ -7,5 +7,15 @@ import org.apache.spark.sql.types.StructType
 class FrankivoRelationProvider extends DataSourceRegister with SchemaRelationProvider {
   override def shortName(): String = "frankivo"
 
-  override def createRelation(sqlContext: SQLContext, parameters: Map[String, String], schema: StructType): BaseRelation = ???
+  override def createRelation(
+                               sqlContext: SQLContext,
+                               parameters: Map[String, String],
+                               _schema: StructType
+                             ): BaseRelation = {
+    new BaseRelation {
+      override def sqlContext: SQLContext = ???
+
+      override def schema: StructType = _schema
+    }
+  }
 }
