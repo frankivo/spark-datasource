@@ -3,7 +3,7 @@ package nl.frankivo.spark
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.types.StructType
 
-object MyDataSourceTest extends App{
+object FrankivoDataSourceTest extends App{
 
   val spark = SparkSession
     .builder
@@ -12,6 +12,7 @@ object MyDataSourceTest extends App{
     .getOrCreate
 
   val schema = new StructType()
+
   spark
     .read
     .format("frankivo")
